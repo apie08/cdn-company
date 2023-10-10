@@ -1,85 +1,76 @@
-<table id="datatable-cdn" datatable [dtOptions]="dtOptions" class="table table-bordered table-striped mb-0 dataTable no-footer"></table>
-
+<div class="row">
+  <table id="datatable-cdn" datatable [dtOptions]="dtOptions"
+    class="table table-bordered table-striped mb-0 dataTable no-footer" style="min-width: 100%;"></table>
+</div>
 
 <ng-template #template>
-    <div class="modal-header">
-      <h4 class="modal-title pull-left">Edit</h4>
-      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
-        <span aria-hidden="true" class="visually-hidden">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-        <form [formGroup]="editForm" (ngSubmit)="editSubmitForm()" autocomplete="off">
-            <div class="row mb-3">
-              <label for="inputUsername" class="col-sm-3 col-form-label col-form-label-sm text-end">Username</label>
-              <div class="col-sm-9">
-                <input 
-                  type="text" 
-                  class="form-control" 
-                  [class.is-invalid]="editForm.get('username')?.errors && editForm.get('username')?.touched"
-                  id="inputUsername"
-                  formControlName="username"
-                  >
-                  <div class="invalid-feedback">Please enter a username.</div>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label for="inputEmail" class="col-sm-3 col-form-label col-form-label-sm text-end">Email</label>
-              <div class="col-sm-9">
-                <input 
-                  type="email" 
-                  [class.is-invalid]="editForm.get('email')?.errors && editForm.get('email')?.touched"
-                  class="form-control" 
-                  id="inputEmail"  
-                  formControlName="email"
-                >
-                <div class="invalid-feedback">Please enter a valid email.</div>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label for="inputPhone" class="col-sm-3 col-form-label col-form-label-sm text-end">Phone No.</label>
-              <div class="col-sm-9">
-                <input 
-                  type="text" 
-                  class="form-control" 
-                  id="inputPhone"
-                  [class.is-invalid]="editForm.get('phoneNumber')?.errors && editForm.get('phoneNumber')?.touched" 
-                  formControlName="phoneNumber">
-                  <div class="invalid-feedback">Please enter a phone number.</div>
-          
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label for="inpputHobby" class="col-sm-3 col-form-label col-form-label-sm text-end">Hobby</label>
-              <div class="col-sm-9">
-                <input 
-                type="text" 
-                class="form-control" 
-                id="inpputHobby" 
-                formControlName="userHobbies" 
-                [class.is-invalid]="editForm.get('userHobbies')?.errors && editForm.get('userHobbies')?.touched" 
-                aria-describedby="hobbyHelp">
-                <small id="hobbyHelp" class="form-text text-muted">Please use (",") if got more hobby.</small>
-                <div class="invalid-feedback">Please enter you hobbies.</div>
-          
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label for="inputSkills" class="col-sm-3 col-form-label col-form-label-sm text-end">Skills</label>
-              <div class="col-sm-9">
-                <input 
-                type="text" 
-                class="form-control"
-                 id="inputSkills" 
-                 formControlName="userSkillsets" 
-                 [class.is-invalid]="editForm.get('userSkillsets')?.errors && editForm.get('userSkillsets')?.touched" 
-                 aria-describedby="skillHelp">
-                <small id="skillHelp" class="form-text text-muted">Please use (",") if got more skills.</small>
-                <div class="invalid-feedback">Please enter you skill sets.</div>
-          
-              </div>
-            </div>
-            <button [disabled]="!editForm.valid" type="submit" class="btn btn-primary">Save</button>
-          </form>
-    </div>
-  </ng-template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit Freelancer Profile</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" (ngSubmit)="editSubmitForm()" autocomplete="off">
+      <div class="row mb-3">
+        <label for="inputUsername" class="col-sm-3 col-form-label col-form-label-sm text-end">Username</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control"
+            [class.is-invalid]="editForm.get('username')?.errors && editForm.get('username')?.touched"
+            id="inputUsername" formControlName="username" placeholder="AmirulAyap">
+          <div class="invalid-feedback">Please enter a username.</div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputEmail" class="col-sm-3 col-form-label col-form-label-sm text-end">Email</label>
+        <div class="col-sm-9">
+          <input type="email" [class.is-invalid]="editForm.get('email')?.errors && editForm.get('email')?.touched"
+            class="form-control" id="inputEmail" formControlName="email"  placeholder="amirul_dev5467@gmail.com">
+          <div class="invalid-feedback">Please enter a valid email.</div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputPhone" class="col-sm-3 col-form-label col-form-label-sm text-end">Phone No.</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="inputPhone"
+            [class.is-invalid]="editForm.get('phoneNumber')?.errors && editForm.get('phoneNumber')?.touched"
+            formControlName="phoneNumber" placeholder="60127420245" aria-describedby="phoneHelp" maxlength="12" minlength="10">
+            <small id="phoneHelp" class="form-text text-muted">Please enter country code without a dash(-)</small>
+          <div class="invalid-feedback">Please enter a valid phone number.</div>
+
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inpputHobby" class="col-sm-3 col-form-label col-form-label-sm text-end">Hobby</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="inpputHobby" formControlName="userHobbies"
+            [class.is-invalid]="editForm.get('userHobbies')?.errors && editForm.get('userHobbies')?.touched"
+            aria-describedby="hobbyHelp">
+          <small id="hobbyHelp" class="form-text text-muted">Please use (",") if got more hobby.</small>
+          <div class="invalid-feedback">Please enter you hobbies.</div>
+
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputSkills" class="col-sm-3 col-form-label col-form-label-sm text-end">Skills</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="inputSkills" formControlName="userSkillsets"
+            [class.is-invalid]="editForm.get('userSkillsets')?.errors && editForm.get('userSkillsets')?.touched"
+            aria-describedby="skillHelp" placeholder="C#,.NET FRAMEWORK,ANGULAR">
+          <small id="skillHelp" class="form-text text-muted">Please use (",") if got more skills.</small>
+          <div class="invalid-feedback">Please enter you skill sets.</div>
+
+        </div>
+      </div>
+      <button [disabled]="!editForm.valid" type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #confirmDelete>
+  <div class="modal-body text-center">
+    <p>Do you confirm to this freelancer?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()">Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+  </div>
+</ng-template>

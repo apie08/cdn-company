@@ -1,54 +1,39 @@
-<h4 class="mb-3">Add Tech</h4>
+<h4 class="mb-4">Add Freelancer Profile</h4>
 <form [formGroup]="addForm" (ngSubmit)="submitForm()" autocomplete="off">
   <div class="row mb-3">
     <label for="inputUsername" class="col-sm-3 col-form-label col-form-label-sm text-end">Username</label>
     <div class="col-sm-9">
-      <input 
-        type="text" 
-        class="form-control" 
-        [class.is-invalid]="addForm.get('username')?.errors && addForm.get('username')?.touched"
-        id="inputUsername"
-        formControlName="username"
-        >
-        <div class="invalid-feedback">Please enter a username.</div>
+      <input type="text" class="form-control"
+        [class.is-invalid]="addForm.get('username')?.errors && addForm.get('username')?.touched" id="inputUsername"
+        formControlName="username" placeholder="AmirulAyap">
+      <div class="invalid-feedback">Please enter a username.</div>
     </div>
   </div>
   <div class="row mb-3">
     <label for="inputEmail" class="col-sm-3 col-form-label col-form-label-sm text-end">Email</label>
     <div class="col-sm-9">
-      <input 
-        type="email" 
-        [class.is-invalid]="addForm.get('email')?.errors && addForm.get('email')?.touched"
-        class="form-control" 
-        id="inputEmail"  
-        formControlName="email"
-      >
+      <input type="email" [class.is-invalid]="addForm.get('email')?.errors && addForm.get('email')?.touched"
+        class="form-control" id="inputEmail" formControlName="email" placeholder="amirul_dev5467@gmail.com">
       <div class="invalid-feedback">Please enter a valid email.</div>
     </div>
   </div>
   <div class="row mb-3">
     <label for="inputPhone" class="col-sm-3 col-form-label col-form-label-sm text-end">Phone No.</label>
     <div class="col-sm-9">
-      <input 
-        type="text" 
-        class="form-control" 
-        id="inputPhone"
-        [class.is-invalid]="addForm.get('phoneNumber')?.errors && addForm.get('phoneNumber')?.touched" 
-        formControlName="phoneNumber">
-        <div class="invalid-feedback">Please enter a phone number.</div>
+      <input type="text" class="form-control" id="inputPhone"
+        [class.is-invalid]="addForm.get('phoneNumber')?.errors && addForm.get('phoneNumber')?.touched"
+        formControlName="phoneNumber" placeholder="60127420245" aria-describedby="phoneHelp" maxlength="12">
+        <small id="phoneHelp" class="form-text text-muted">Please enter phone number with country code without (-)</small>
+      <div class="invalid-feedback">Please enter a valid phone number.</div>
 
     </div>
   </div>
   <div class="row mb-3">
     <label for="inpputHobby" class="col-sm-3 col-form-label col-form-label-sm text-end">Hobby</label>
     <div class="col-sm-9">
-      <input 
-      type="text" 
-      class="form-control" 
-      id="inpputHobby" 
-      formControlName="userHobbies" 
-      [class.is-invalid]="addForm.get('userHobbies')?.errors && addForm.get('userHobbies')?.touched" 
-      aria-describedby="hobbyHelp">
+      <input type="text" class="form-control" id="inpputHobby" formControlName="userHobbies"
+        [class.is-invalid]="addForm.get('userHobbies')?.errors && addForm.get('userHobbies')?.touched"
+        aria-describedby="hobbyHelp" placeholder="cooking,playing game">
       <small id="hobbyHelp" class="form-text text-muted">Please use (",") if got more hobby.</small>
       <div class="invalid-feedback">Please enter you hobbies.</div>
 
@@ -57,13 +42,9 @@
   <div class="row mb-3">
     <label for="inputSkills" class="col-sm-3 col-form-label col-form-label-sm text-end">Skills</label>
     <div class="col-sm-9">
-      <input 
-      type="text" 
-      class="form-control"
-       id="inputSkills" 
-       formControlName="userSkillsets" 
-       [class.is-invalid]="addForm.get('userSkillsets')?.errors && addForm.get('userSkillsets')?.touched" 
-       aria-describedby="skillHelp">
+      <input type="text" class="form-control" id="inputSkills" formControlName="userSkillsets"
+        [class.is-invalid]="addForm.get('userSkillsets')?.errors && addForm.get('userSkillsets')?.touched"
+        aria-describedby="skillHelp" placeholder="C#,.Net framework,Angular">
       <small id="skillHelp" class="form-text text-muted">Please use (",") if got more skills.</small>
       <div class="invalid-feedback">Please enter you skill sets.</div>
 

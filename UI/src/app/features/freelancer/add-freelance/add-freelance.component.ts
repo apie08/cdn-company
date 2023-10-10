@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/_services/user.service';
 
 
@@ -11,7 +12,11 @@ import { UserService } from 'src/app/_services/user.service';
 })
 
 export class AddFreelanceComponent {
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router){}
+  constructor(
+    private fb: FormBuilder, 
+    private userService: UserService, 
+    private router: Router,
+    private toastr: ToastrService){}
   model: any = {};
   addForm: FormGroup =new FormGroup({});
 
@@ -24,7 +29,7 @@ export class AddFreelanceComponent {
     this.addForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
       email: ['',[ Validators.email, Validators.required]],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.pattern('[- +()0-9]{10,12}')]],
       userHobbies: ['',Validators.required],
       userSkillsets: ['', Validators.required],
     })
@@ -45,11 +50,12 @@ export class AddFreelanceComponent {
 
     this.userService.register(values).subscribe({
       next: response => {
-        console.log("registered!");
-        this.reloadPage();
+          this.toastr.success("Successfully save!");
+          $('#datatable-cdn').DataTable().ajax.reload();
+          this.addForm.reset();
       },
       error: error => {
-        console.log(error);
+        this.toastr.error(error);
       }
     })
   }

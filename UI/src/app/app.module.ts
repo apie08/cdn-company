@@ -12,6 +12,8 @@ import { AddFreelanceComponent } from './features/freelancer/add-freelance/add-f
 import { DataFreelanceComponent } from './features/freelancer/data-freelance/data-freelance.component';
 import { DataTablesModule } from "angular-datatables";
 import { ModalModule } from 'ngx-bootstrap/modal'; 
+import { ToastrModule } from 'ngx-toastr';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FormsModule,
     ReactiveFormsModule,
     DataTablesModule ,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
+    FontAwesomeModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
